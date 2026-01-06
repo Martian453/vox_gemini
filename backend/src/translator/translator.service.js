@@ -28,6 +28,6 @@ export const translateText = async (text, sourceLang = "auto", targetLang = "en"
   } catch (error) {
     console.error("Gemini Translation Error:", error);
     // Fallback: return original text so the app doesn't crash
-    return text;
+    return `[Failed Translation]: ${text}`;
   }
 };
