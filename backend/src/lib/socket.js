@@ -16,6 +16,7 @@ export const io = new Server(server, {
         !origin ||
         origin.startsWith("http://localhost") ||
         origin.startsWith("http://192.168.") ||
+        origin.endsWith(".vercel.app") ||
         origin === process.env.CLIENT_URL
       ) {
         callback(null, true);
