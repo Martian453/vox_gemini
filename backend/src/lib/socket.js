@@ -11,12 +11,9 @@ const userSocketMap = new Map();
 
 export const io = new Server(server, {
   cors: {
-    origin: (origin, callback) => {
-      // Allow all origins for connectivity
-      callback(null, true);
-    },
+    origin: "*",
     methods: ["GET", "POST"],
-    credentials: true,
+    credentials: false,
   },
 });
 
