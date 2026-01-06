@@ -52,8 +52,9 @@ io.on("connection", (socket) => {
 
 // Helper to get a user’s socketId
 export const getReceiverSocketId = (receiverId) => {
-  if (!receiverId) return undefined;
-  return userSocketMap.get(String(receiverId));
+  const socketId = userSocketMap.get(String(receiverId));
+  console.log(`🔍 getReceiverSocketId: Looking for ${receiverId}, Found: ${socketId}`);
+  return socketId;
 };
 
 // ✅ Export both app and server
