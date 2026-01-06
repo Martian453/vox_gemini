@@ -14,12 +14,14 @@ const ChatContainer = () => {
   } = useChatStore();
 
   const socket = useAuthStore((s) => s.socket);
+  console.log("🔌 ChatContainer Socket State:", socket ? "Connected" : "No Socket");
 
   // 🔌 Subscribe to socket events
   useEffect(() => {
     if (!socket) return;
 
     const handleNewMessage = (msg) => {
+      console.log("🔔 Socket received newMessage:", msg);
       addMessage(msg);
     };
 
@@ -63,11 +65,10 @@ const ChatContainer = () => {
           messages.map((msg) => (
             <div
               key={msg._id}
-              className={`p-2 rounded-lg max-w-xs ${
-                msg.senderId === selectedUser._id
-                  ? "bg-gray-200 self-start"
-                  : "bg-blue-500 text-white self-end"
-              }`}
+              className={`p-2 rounded-lg max-w-xs ${msg.senderId === selectedUser._id
+                ? "bg-gray-200 self-start"
+                : "bg-blue-500 text-white self-end"
+                }`}
             >
               {/* ✅ Show translated text if available, else original */}
               <p>{msg.translatedText || msg.originalText}</p>
