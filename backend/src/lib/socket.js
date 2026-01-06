@@ -12,17 +12,8 @@ const userSocketMap = new Map();
 export const io = new Server(server, {
   cors: {
     origin: (origin, callback) => {
-      if (
-        !origin ||
-        origin.startsWith("http://localhost") ||
-        origin.startsWith("http://192.168.") ||
-        origin.endsWith(".vercel.app") ||
-        origin === process.env.CLIENT_URL
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
+      // Allow all origins for connectivity
+      callback(null, true);
     },
     methods: ["GET", "POST"],
     credentials: true,
