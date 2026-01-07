@@ -29,7 +29,6 @@ export const useAuthStore = create((set, get) => ({
     const socketURL = import.meta.env.MODE === "development" ? `http://${window.location.hostname}:5001` : import.meta.env.VITE_API_URL;
     const newSocket = io(socketURL, {
       query: { userId: authUser._id },
-      transports: ["websocket"],
     });
 
     set({ socket: newSocket });
