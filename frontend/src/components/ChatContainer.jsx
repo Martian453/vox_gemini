@@ -14,14 +14,12 @@ const ChatContainer = () => {
   } = useChatStore();
 
   const socket = useAuthStore((s) => s.socket);
-  console.log("🔌 ChatContainer Socket State:", socket ? "Connected" : "No Socket");
 
   // 🔌 Subscribe to socket events
   useEffect(() => {
     if (!socket) return;
 
     const handleNewMessage = (msg) => {
-      console.log("🔔 Socket received newMessage:", msg);
       addMessage(msg);
     };
 

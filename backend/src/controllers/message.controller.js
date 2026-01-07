@@ -94,13 +94,11 @@ export const sendMessage = async (req, res) => {
 
     // Emit immediately so receiver sees it fast
     const receiverSocketId = getReceiverSocketId?.(String(receiverId));
-    console.log(`🔍 sendMessage: Emitting to receiver ${receiverId}, SocketID: ${receiverSocketId}`);
 
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", payload);
-      console.log("✅ Emitted newMessage event");
     } else {
-      console.log("⚠️ Receiver socket not found");
+
     }
 
     // Return response to sender (so no duplicate socket to self)
