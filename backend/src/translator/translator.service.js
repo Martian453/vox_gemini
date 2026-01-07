@@ -18,10 +18,12 @@ export const translateText = async (text, sourceLang = "auto", targetLang = "en"
 
   try {
     const prompt = `Translate the following text to ${targetLang}. Return ONLY the translated text, no additional explanation or quotes.\n\nText: "${text}"`;
+    console.log(`🤖 Sending Prompt to Gemini: ${prompt}`);
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const translatedText = response.text().trim();
+    console.log(`🤖 Raw Gemini Response: "${translatedText}"`);
 
     // Cleanup quotes if Gemini adds them sometimes
     return translatedText.replace(/^"|"$/g, '');
