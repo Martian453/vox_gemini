@@ -36,19 +36,20 @@ Vox provided practical experience in full-stack web development, real-time commu
 
 ### Frontend
 - React.js
+- Vite
+- Tailwind CSS
 - HTML5
-- CSS3
-- JavaScript
+- JavaScript (ES6+)
 
 ### Backend
 - Node.js
 - Express.js
 
-### Real-Time Communication
-- Socket.IO
-
 ### AI Integration
 - Google Gemini API
+
+### Real-Time Communication
+- Socket.IO
 
 ### Development Tools
 - Git
